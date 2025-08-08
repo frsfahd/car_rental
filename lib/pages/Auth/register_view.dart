@@ -45,181 +45,190 @@ class _RegisterViewMobileState extends State<RegisterViewMobile> {
       padding: EdgeInsets.only(left: 20, right: 20),
       child: Form(
         key: _formKey,
-        child: Column(
-          children: [
-            // username field
-            Padding(
-              padding: EdgeInsets.only(top: 20),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    "Username",
-                    style: TextStyle(fontWeight: FontWeight.bold),
-                  ),
-                  SizedBox(height: 10),
-                  TextFormField(
-                    controller: _usernameController,
-                    validator: (value) {
-                      if (value == null || value.isEmpty) {
-                        return 'Username cannot be empty';
-                      }
-                      return null;
-                    },
-                    decoration: const InputDecoration(
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(12)),
-                      ),
-                      hintText: "Ex: Kenny Ackermann",
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              // username field
+              Padding(
+                padding: EdgeInsets.only(top: 20),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "Username",
+                      style: TextStyle(fontWeight: FontWeight.bold),
                     ),
-                  ),
-                ],
-              ),
-            ),
-
-            // email field
-            Padding(
-              padding: EdgeInsets.only(top: 20),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text("Email", style: TextStyle(fontWeight: FontWeight.bold)),
-                  SizedBox(height: 10),
-                  TextFormField(
-                    controller: _emailController,
-                    validator: (value) {
-                      if (value == null || value.isEmpty) {
-                        return 'Email cannot be empty';
-                      }
-                      return null;
-                    },
-                    decoration: const InputDecoration(
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(12)),
-                      ),
-                      hintText: "example@gmail.com",
-                    ),
-                  ),
-                ],
-              ),
-            ),
-
-            // password field
-            Padding(
-              padding: EdgeInsets.only(top: 20),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    "Password",
-                    style: TextStyle(fontWeight: FontWeight.bold),
-                  ),
-                  SizedBox(height: 10),
-                  TextFormField(
-                    controller: _passwordController,
-                    validator: (value) {
-                      if (value == null || value.isEmpty) {
-                        return 'Password cannot be empty';
-                      }
-                      return null;
-                    },
-                    obscureText: _isObscured,
-                    decoration: InputDecoration(
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(12)),
-                      ),
-                      hintText: "********",
-                      suffixIcon: IconButton(
-                        onPressed: () {
-                          setState(() {
-                            _isObscured = !_isObscured;
-                          });
-                        },
-                        icon: Icon(
-                          _isObscured ? Icons.visibility_off : Icons.visibility,
+                    SizedBox(height: 10),
+                    TextFormField(
+                      controller: _usernameController,
+                      validator: (value) {
+                        if (value == null || value.isEmpty) {
+                          return 'Username cannot be empty';
+                        }
+                        return null;
+                      },
+                      decoration: const InputDecoration(
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(12)),
                         ),
+                        hintText: "Ex: Kenny Ackermann",
                       ),
                     ),
-                  ),
-                ],
-              ),
-            ),
-
-            // password confirmation field
-            Padding(
-              padding: EdgeInsets.only(top: 20),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    "Confirm Password",
-                    style: TextStyle(fontWeight: FontWeight.bold),
-                  ),
-                  SizedBox(height: 10),
-                  TextFormField(
-                    controller: _passwordConfirmationController,
-                    validator: (value) {
-                      if (value == null ||
-                          value.isEmpty ||
-                          value != _passwordController.text) {
-                        return 'Password does not match';
-                      }
-                      return null;
-                    },
-                    obscureText: _isObscured,
-                    decoration: InputDecoration(
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(12)),
-                      ),
-                      hintText: "********",
-                      suffixIcon: IconButton(
-                        onPressed: () {
-                          setState(() {
-                            _isObscured = !_isObscured;
-                          });
-                        },
-                        icon: Icon(
-                          _isObscured ? Icons.visibility_off : Icons.visibility,
-                        ),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-
-            SizedBox(height: 40),
-
-            // Register button
-            SizedBox(
-              width: double.infinity,
-              height: 48,
-              child: FilledButton(
-                style: FilledButton.styleFrom(
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(12),
-                  ),
+                  ],
                 ),
-                onPressed: () {
-                  if (_formKey.currentState!.validate()) {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => Home()),
-                    );
-                  }
-                },
-                child: const Text("Create Account"),
               ),
-            ),
 
-            // register redirection
-            TextButton(
-              onPressed: () {
-                widget.changeView!(mode: authView.Login);
-              },
-              child: Text("Already have an account ? Log in here"),
-            ),
-          ],
+              // email field
+              Padding(
+                padding: EdgeInsets.only(top: 20),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "Email",
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                    ),
+                    SizedBox(height: 10),
+                    TextFormField(
+                      controller: _emailController,
+                      validator: (value) {
+                        if (value == null || value.isEmpty) {
+                          return 'Email cannot be empty';
+                        }
+                        return null;
+                      },
+                      decoration: const InputDecoration(
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(12)),
+                        ),
+                        hintText: "example@gmail.com",
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+
+              // password field
+              Padding(
+                padding: EdgeInsets.only(top: 20),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "Password",
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                    ),
+                    SizedBox(height: 10),
+                    TextFormField(
+                      controller: _passwordController,
+                      validator: (value) {
+                        if (value == null || value.isEmpty) {
+                          return 'Password cannot be empty';
+                        }
+                        return null;
+                      },
+                      obscureText: _isObscured,
+                      decoration: InputDecoration(
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(12)),
+                        ),
+                        hintText: "********",
+                        suffixIcon: IconButton(
+                          onPressed: () {
+                            setState(() {
+                              _isObscured = !_isObscured;
+                            });
+                          },
+                          icon: Icon(
+                            _isObscured
+                                ? Icons.visibility_off
+                                : Icons.visibility,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+
+              // password confirmation field
+              Padding(
+                padding: EdgeInsets.only(top: 20),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "Confirm Password",
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                    ),
+                    SizedBox(height: 10),
+                    TextFormField(
+                      controller: _passwordConfirmationController,
+                      validator: (value) {
+                        if (value == null ||
+                            value.isEmpty ||
+                            value != _passwordController.text) {
+                          return 'Password does not match';
+                        }
+                        return null;
+                      },
+                      obscureText: _isObscured,
+                      decoration: InputDecoration(
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(12)),
+                        ),
+                        hintText: "********",
+                        suffixIcon: IconButton(
+                          onPressed: () {
+                            setState(() {
+                              _isObscured = !_isObscured;
+                            });
+                          },
+                          icon: Icon(
+                            _isObscured
+                                ? Icons.visibility_off
+                                : Icons.visibility,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+
+              SizedBox(height: 40),
+
+              // Register button
+              SizedBox(
+                width: double.infinity,
+                height: 48,
+                child: FilledButton(
+                  style: FilledButton.styleFrom(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                  ),
+                  onPressed: () {
+                    if (_formKey.currentState!.validate()) {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => Home()),
+                      );
+                    }
+                  },
+                  child: const Text("Create Account"),
+                ),
+              ),
+
+              // register redirection
+              TextButton(
+                onPressed: () {
+                  widget.changeView!(mode: authView.Login);
+                },
+                child: Text("Already have an account ? Log in here"),
+              ),
+            ],
+          ),
         ),
       ),
     );

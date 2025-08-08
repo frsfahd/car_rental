@@ -1,7 +1,4 @@
-import 'package:car_rental/model/car_details.dart';
 import 'package:car_rental/pages/Auth/auth.dart';
-import 'package:car_rental/pages/Details/details.dart';
-import 'package:car_rental/pages/Home/home.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 

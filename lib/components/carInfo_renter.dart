@@ -19,26 +19,24 @@ class CarinfoRenter extends StatelessWidget {
           minTileHeight: 90,
           horizontalTitleGap: 20,
           leading: CircleAvatar(child: Icon(Icons.person_sharp)),
-          title: Container(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  "Donald Bin Salman",
-                  style: Theme.of(
-                    context,
-                  ).textTheme.bodyLarge!.copyWith(fontWeight: FontWeight.bold),
-                ),
-                SizedBox(height: 4), // Add space between title and subtitle
-                Text(
-                  "Renter",
-                  style: Theme.of(
-                    context,
-                  ).textTheme.bodySmall!.copyWith(color: Colors.grey),
-                ),
-              ],
-            ),
+          title: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                "Donald Bin Salman",
+                style: Theme.of(
+                  context,
+                ).textTheme.bodyLarge!.copyWith(fontWeight: FontWeight.bold),
+              ),
+              SizedBox(height: 4), // Add space between title and subtitle
+              Text(
+                "Renter",
+                style: Theme.of(
+                  context,
+                ).textTheme.bodySmall!.copyWith(color: Colors.grey),
+              ),
+            ],
           ),
           trailing: Container(
             constraints: BoxConstraints(maxWidth: 90),
