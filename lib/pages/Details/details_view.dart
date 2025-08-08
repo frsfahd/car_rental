@@ -1,13 +1,10 @@
 // ignore_for_file: slash_for_doc_comments
 
-import 'package:car_rental/components/callBtn.dart';
 import 'package:car_rental/components/carInfo_header.dart';
 import 'package:car_rental/components/carInfo_overview.dart';
 import 'package:car_rental/components/carInfo_renter.dart';
 import 'package:car_rental/components/carInfo_specs.dart';
-import 'package:car_rental/components/chatBtn.dart';
 import 'package:car_rental/model/car_details.dart';
-import 'package:car_rental/components/bookmarkBtn.dart';
 import 'package:flutter/material.dart';
 
 /******************** Small Screen View ********************/
