@@ -13,14 +13,12 @@ class Details extends StatelessWidget {
       builder: (BuildContext context, BoxConstraints constraints) {
         if (constraints.maxWidth <= 700) {
           return Scaffold(
-            body: SingleChildScrollView(child: DetailsViewMobile(car: car)),
+            body: DetailsViewMobile(car: car),
 
             bottomNavigationBar: const Bookbtn(),
           );
         }
-        return Scaffold(
-          body: SingleChildScrollView(child: DetailsViewWeb(car: car)),
-        );
+        return Scaffold(body: DetailsViewWeb(car: car));
       },
     );
   }

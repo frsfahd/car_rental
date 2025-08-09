@@ -139,10 +139,14 @@ class _HomeViewWebState extends State<HomeViewWeb> {
                         ),
 
                         // brands filter
-                        Padding(
-                          padding: EdgeInsetsGeometry.only(top: 20),
-                          child: WrappedBrandsFilter(
-                            filterBrands: filterVehicleListByBrands,
+                        Expanded(
+                          child: SingleChildScrollView(
+                            child: Padding(
+                              padding: EdgeInsetsGeometry.only(top: 20),
+                              child: WrappedBrandsFilter(
+                                filterBrands: filterVehicleListByBrands,
+                              ),
+                            ),
                           ),
                         ),
                       ],

@@ -19,79 +19,81 @@ class DetailsViewMobile extends StatelessWidget {
     return SafeArea(
       child: Padding(
         padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
-        child: Column(
-          children: [
-            // car image
-            Container(
-              constraints: BoxConstraints(maxHeight: 900),
-              child: ClipRRect(
-                borderRadius: BorderRadiusGeometry.circular(20),
-                child: Image.network(
-                  car.img_url,
-                  fit: BoxFit.cover,
-                  width: double.infinity,
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              // car image
+              Container(
+                constraints: BoxConstraints(maxHeight: 900),
+                child: ClipRRect(
+                  borderRadius: BorderRadiusGeometry.circular(20),
+                  child: Image.network(
+                    car.img_url,
+                    fit: BoxFit.cover,
+                    width: double.infinity,
+                  ),
                 ),
               ),
-            ),
 
-            // car title, ratings, and bookmark btn
-            CarinfoHeader(car: car),
+              // car title, ratings, and bookmark btn
+              CarinfoHeader(car: car),
 
-            // Divider(color: Colors.grey.shade300, height: 0),
+              // Divider(color: Colors.grey.shade300, height: 0),
 
-            // car renter info
-            CarinfoRenter(),
+              // car renter info
+              CarinfoRenter(),
 
-            // Divider(color: Colors.grey.shade300, height: 20),
+              // Divider(color: Colors.grey.shade300, height: 20),
 
-            // car info title
-            Container(
-              padding: EdgeInsets.only(top: 10),
-              alignment: Alignment.centerLeft,
-              child: Text(
-                "Car Info",
-                style: Theme.of(
-                  context,
-                ).textTheme.bodyLarge!.copyWith(fontWeight: FontWeight.bold),
+              // car info title
+              Container(
+                padding: EdgeInsets.only(top: 10),
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  "Car Info",
+                  style: Theme.of(
+                    context,
+                  ).textTheme.bodyLarge!.copyWith(fontWeight: FontWeight.bold),
+                ),
               ),
-            ),
 
-            // car info overview
-            CarinfoOverview(car: car),
+              // car info overview
+              CarinfoOverview(car: car),
 
-            // car technical specs title
-            Container(
-              padding: EdgeInsets.only(top: 10),
-              alignment: Alignment.centerLeft,
-              child: Text(
-                "Car Specs",
-                style: Theme.of(
-                  context,
-                ).textTheme.bodyLarge!.copyWith(fontWeight: FontWeight.bold),
+              // car technical specs title
+              Container(
+                padding: EdgeInsets.only(top: 10),
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  "Car Specs",
+                  style: Theme.of(
+                    context,
+                  ).textTheme.bodyLarge!.copyWith(fontWeight: FontWeight.bold),
+                ),
               ),
-            ),
 
-            // car technical specifications
-            CarInfoSpecs(car: car),
+              // car technical specifications
+              CarInfoSpecs(car: car),
 
-            // booking button
-            // Padding(
-            //   padding: EdgeInsets.only(top: 30),
-            //   child: SizedBox(
-            //     width: double.infinity,
-            //     height: 48,
-            //     child: FilledButton(
-            //       style: FilledButton.styleFrom(
-            //         shape: RoundedRectangleBorder(
-            //           borderRadius: BorderRadius.circular(12),
-            //         ),
-            //       ),
-            //       onPressed: () {},
-            //       child: const Text("Book Now"),
-            //     ),
-            //   ),
-            // ),
-          ],
+              // booking button
+              // Padding(
+              //   padding: EdgeInsets.only(top: 30),
+              //   child: SizedBox(
+              //     width: double.infinity,
+              //     height: 48,
+              //     child: FilledButton(
+              //       style: FilledButton.styleFrom(
+              //         shape: RoundedRectangleBorder(
+              //           borderRadius: BorderRadius.circular(12),
+              //         ),
+              //       ),
+              //       onPressed: () {},
+              //       child: const Text("Book Now"),
+              //     ),
+              //   ),
+              // ),
+            ],
+          ),
         ),
       ),
     );
@@ -133,66 +135,68 @@ class DetailsViewWeb extends StatelessWidget {
 
             // right section
             Expanded(
-              child: Column(
-                children: [
-                  // car title, ratings, and bookmark btn
-                  CarinfoHeader(car: car),
+              child: SingleChildScrollView(
+                child: Column(
+                  children: [
+                    // car title, ratings, and bookmark btn
+                    CarinfoHeader(car: car),
 
-                  // Divider(color: Colors.grey.shade300, height: 0),
+                    // Divider(color: Colors.grey.shade300, height: 0),
 
-                  // car renter info
-                  CarinfoRenter(),
+                    // car renter info
+                    CarinfoRenter(),
 
-                  // Divider(color: Colors.grey.shade300, height: 20),
+                    // Divider(color: Colors.grey.shade300, height: 20),
 
-                  // car info title
-                  Container(
-                    padding: EdgeInsets.only(top: 10),
-                    alignment: Alignment.centerLeft,
-                    child: Text(
-                      "Car Info",
-                      style: Theme.of(context).textTheme.bodyLarge!.copyWith(
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ),
-
-                  // car info overview
-                  CarinfoOverview(car: car),
-
-                  // car technical specs title
-                  Container(
-                    padding: EdgeInsets.only(top: 10),
-                    alignment: Alignment.centerLeft,
-                    child: Text(
-                      "Car Specs",
-                      style: Theme.of(context).textTheme.bodyLarge!.copyWith(
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ),
-
-                  // car technical specifications
-                  CarInfoSpecs(car: car),
-
-                  // booking button
-                  Padding(
-                    padding: EdgeInsets.only(top: 30),
-                    child: SizedBox(
-                      width: double.infinity,
-                      height: 48,
-                      child: FilledButton(
-                        style: FilledButton.styleFrom(
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(12),
-                          ),
+                    // car info title
+                    Container(
+                      padding: EdgeInsets.only(top: 10),
+                      alignment: Alignment.centerLeft,
+                      child: Text(
+                        "Car Info",
+                        style: Theme.of(context).textTheme.bodyLarge!.copyWith(
+                          fontWeight: FontWeight.bold,
                         ),
-                        onPressed: () {},
-                        child: const Text("Book Now"),
                       ),
                     ),
-                  ),
-                ],
+
+                    // car info overview
+                    CarinfoOverview(car: car),
+
+                    // car technical specs title
+                    Container(
+                      padding: EdgeInsets.only(top: 10),
+                      alignment: Alignment.centerLeft,
+                      child: Text(
+                        "Car Specs",
+                        style: Theme.of(context).textTheme.bodyLarge!.copyWith(
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+
+                    // car technical specifications
+                    CarInfoSpecs(car: car),
+
+                    // booking button
+                    Padding(
+                      padding: EdgeInsets.only(top: 30),
+                      child: SizedBox(
+                        width: double.infinity,
+                        height: 48,
+                        child: FilledButton(
+                          style: FilledButton.styleFrom(
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(12),
+                            ),
+                          ),
+                          onPressed: () {},
+                          child: const Text("Book Now"),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
           ],

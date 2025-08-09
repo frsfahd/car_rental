@@ -218,133 +218,137 @@ class _LoginViewWebState extends State<LoginViewWeb> {
                 constraints: BoxConstraints(maxWidth: 400),
                 child: Form(
                   key: _formKey,
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      // Headline
-                      Text(
-                        "Welcome Back !",
-                        style: Theme.of(context).textTheme.headlineMedium!
-                            .copyWith(fontWeight: FontWeight.bold),
-                      ),
-                      // email field
-                      Padding(
-                        padding: EdgeInsets.only(top: 20),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              "Email",
-                              style: TextStyle(fontWeight: FontWeight.bold),
-                            ),
-                            SizedBox(height: 10),
-                            TextFormField(
-                              controller: _emailController,
-                              validator: (value) {
-                                if (value == null || value.isEmpty) {
-                                  return 'Email cannot be empty';
-                                }
-                                return null;
-                              },
-                              decoration: const InputDecoration(
-                                border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.all(
-                                    Radius.circular(12),
-                                  ),
-                                ),
-                                hintText: "example@gmail.com",
-                              ),
-                            ),
-                          ],
+                  child: SingleChildScrollView(
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        // Headline
+                        Text(
+                          "Welcome Back !",
+                          style: Theme.of(context).textTheme.headlineMedium!
+                              .copyWith(fontWeight: FontWeight.bold),
                         ),
-                      ),
-
-                      // password field
-                      Padding(
-                        padding: EdgeInsets.only(top: 20),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              "Password",
-                              style: TextStyle(fontWeight: FontWeight.bold),
-                            ),
-                            SizedBox(height: 10),
-                            TextFormField(
-                              controller: _passwordController,
-                              validator: (value) {
-                                if (value == null || value.isEmpty) {
-                                  return 'Password cannot be empty';
-                                }
-                                return null;
-                              },
-                              obscureText: _isObscured,
-                              decoration: InputDecoration(
-                                border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.all(
-                                    Radius.circular(12),
+                        // email field
+                        Padding(
+                          padding: EdgeInsets.only(top: 20),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                "Email",
+                                style: TextStyle(fontWeight: FontWeight.bold),
+                              ),
+                              SizedBox(height: 10),
+                              TextFormField(
+                                controller: _emailController,
+                                validator: (value) {
+                                  if (value == null || value.isEmpty) {
+                                    return 'Email cannot be empty';
+                                  }
+                                  return null;
+                                },
+                                decoration: const InputDecoration(
+                                  border: OutlineInputBorder(
+                                    borderRadius: BorderRadius.all(
+                                      Radius.circular(12),
+                                    ),
                                   ),
-                                ),
-                                hintText: "********",
-                                suffixIcon: IconButton(
-                                  onPressed: () {
-                                    setState(() {
-                                      _isObscured = !_isObscured;
-                                    });
-                                  },
-                                  icon: Icon(
-                                    _isObscured
-                                        ? Icons.visibility_off
-                                        : Icons.visibility,
-                                  ),
+                                  hintText: "example@gmail.com",
                                 ),
                               ),
-                            ),
-                          ],
-                        ),
-                      ),
-
-                      // "forget password"
-                      Align(
-                        alignment: Alignment.centerRight,
-                        child: TextButton(
-                          onPressed: () {},
-                          child: Text("forget your password ?"),
-                        ),
-                      ),
-
-                      SizedBox(height: 20),
-
-                      // login button
-                      SizedBox(
-                        width: double.infinity,
-                        height: 48,
-                        child: FilledButton(
-                          style: FilledButton.styleFrom(
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(12),
-                            ),
+                            ],
                           ),
-                          onPressed: () {
-                            if (_formKey.currentState!.validate()) {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(builder: (context) => Home()),
-                              );
-                            }
-                          },
-                          child: const Text("Log in"),
                         ),
-                      ),
 
-                      // register redirection
-                      TextButton(
-                        onPressed: () {
-                          widget.changeView!(mode: authView.Register);
-                        },
-                        child: Text("Don't have an account ? Create account"),
-                      ),
-                    ],
+                        // password field
+                        Padding(
+                          padding: EdgeInsets.only(top: 20),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                "Password",
+                                style: TextStyle(fontWeight: FontWeight.bold),
+                              ),
+                              SizedBox(height: 10),
+                              TextFormField(
+                                controller: _passwordController,
+                                validator: (value) {
+                                  if (value == null || value.isEmpty) {
+                                    return 'Password cannot be empty';
+                                  }
+                                  return null;
+                                },
+                                obscureText: _isObscured,
+                                decoration: InputDecoration(
+                                  border: OutlineInputBorder(
+                                    borderRadius: BorderRadius.all(
+                                      Radius.circular(12),
+                                    ),
+                                  ),
+                                  hintText: "********",
+                                  suffixIcon: IconButton(
+                                    onPressed: () {
+                                      setState(() {
+                                        _isObscured = !_isObscured;
+                                      });
+                                    },
+                                    icon: Icon(
+                                      _isObscured
+                                          ? Icons.visibility_off
+                                          : Icons.visibility,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+
+                        // "forget password"
+                        Align(
+                          alignment: Alignment.centerRight,
+                          child: TextButton(
+                            onPressed: () {},
+                            child: Text("forget your password ?"),
+                          ),
+                        ),
+
+                        SizedBox(height: 20),
+
+                        // login button
+                        SizedBox(
+                          width: double.infinity,
+                          height: 48,
+                          child: FilledButton(
+                            style: FilledButton.styleFrom(
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(12),
+                              ),
+                            ),
+                            onPressed: () {
+                              if (_formKey.currentState!.validate()) {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => Home(),
+                                  ),
+                                );
+                              }
+                            },
+                            child: const Text("Log in"),
+                          ),
+                        ),
+
+                        // register redirection
+                        TextButton(
+                          onPressed: () {
+                            widget.changeView!(mode: authView.Register);
+                          },
+                          child: Text("Don't have an account ? Create account"),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),
